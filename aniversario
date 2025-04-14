@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Hospedagem - Aniversário</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            background-color: #0e0220;
+            background-image: url('https://img.freepik.com/vetores-gratis/fundo-do-rendering-3d-da-tecnologia-da-inteligencia-artificial_117250-164.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #f7db63;
+        }
+        .hotel {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        a {
+            color: #f7db63;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guia de Hospedagem</h1>
+        <h2>Festa de 40 anos - Amanda e Rafa</h2>
+        <p>Data: 14 de junho de 2025, às 20h<br>Local: Club House - Damha Golf Club, São Carlos - SP</p>
+
+        <h3>Opções de Hospedagem</h3>
+        <div class="hotel">
+            <h4>Ibis São Carlos</h4>
+            <p>Preço médio: R$ 203/noite</p>
+            <p>Wi-Fi gratuito, restaurante no local, ar-condicionado</p>
+            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
+        </div>
+        <div class="hotel">
+            <h4>Transamerica Fit São Carlos</h4>
+            <p>Preço médio: R$ 220/noite</p>
+            <p>Café da manhã incluso, Wi-Fi gratuito, academia, piscina</p>
+            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
+        </div>
+        <div class="hotel">
+            <h4>Marklin Suítes</h4>
+            <p>Preço médio: R$ 293/noite</p>
+            <p>Quartos modernos e confortáveis, estacionamento incluído, Wi-Fi gratuito</p>
+            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
+        </div>
+
+        <footer>
+            🎉 Estamos ansiosos para comemorar com você! 🎉<br>
+            <small>Entre em contato para mais informações e dúvidas.</small>
+        </footer>
+    </div>
+</body>
+</html>
