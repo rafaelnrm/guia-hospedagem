@@ -212,6 +212,89 @@
     </style>  
 </head>  
 <body>  
+    <!-- ...todo o seu código HTML permanece igual acima... -->  
+<style>  
+    /* ...todo o seu CSS permanece igual acima... */  
+
+    /* ----------------------------------------------------  
+        Efeito de blobs coloridas animadas no background   
+    ----------------------------------------------------- */  
+    .background-blobs {  
+        position: fixed;  
+        top: 0; left: 0; width: 100vw; height: 100vh;  
+        overflow: hidden;  
+        z-index: 0; /* Para ficar atrás de todo o conteúdo */  
+        pointer-events: none; /* Não interfere no clique */  
+    }  
+
+    .blob {  
+        position: absolute;  
+        border-radius: 50%;  
+        filter: blur(80px);  
+        opacity: 0.7;  
+        animation-duration: 24s;  
+        animation-timing-function: ease-in-out;  
+        animation-iteration-count: infinite;  
+        mix-blend-mode: lighten;  
+    }  
+
+    .blob1 {  
+        width: 500px; height: 500px;  
+        background: radial-gradient(circle, #ff2a6b 60%, #3a1c71 100%);  
+        top: 10%; left: 10%;  
+        animation-name: moveBlob1;  
+    }  
+    .blob2 {  
+        width: 400px; height: 400px;  
+        background: radial-gradient(circle, #63eaff 60%, #3a1c71 100%);  
+        top: 65%; left: 60%;  
+        animation-name: moveBlob2;  
+    }  
+    .blob3 {  
+        width: 600px; height: 600px;  
+        background: radial-gradient(circle, #ff8be2 60%, #5942f4 100%);  
+        top: 40%; left: 50%;  
+        animation-name: moveBlob3;  
+    }  
+    .blob4 {  
+        width: 320px; height: 320px;  
+        background: radial-gradient(circle, #ffbd39 50%, #ff2a6b 100%);  
+        top: 70%; left: 20%;  
+        animation-name: moveBlob4;  
+        opacity: 0.4;  
+    }  
+
+    @keyframes moveBlob1 {  
+        0%, 100% { top: 10%; left: 10%; }  
+        40% { top: 25%; left: 18%; }  
+        70% { top: 13%; left: 50%; }  
+    }  
+    @keyframes moveBlob2 {  
+        0%, 100% { top: 65%; left: 60%; }  
+        40% { top: 60%; left: 75%; }  
+        70% { top: 73%; left: 55%; }  
+    }  
+    @keyframes moveBlob3 {  
+        0%, 100% { top: 40%; left: 50%; }  
+        30% { top: 42%; left: 20%; }  
+        60% { top: 62%; left: 48%; }  
+    }  
+    @keyframes moveBlob4 {  
+        0%, 100% { top: 70%; left: 20%; }  
+        45% { top: 80%; left: 7%; }  
+        75% { top: 85%; left: 30%; }  
+    }  
+    /* -------------------------------------------------- */  
+    /* Coloque .background-blobs ANTES do .container!     */  
+</style>  
+<body>  
+    <div class="background-blobs">  
+      <div class="blob blob1"></div>  
+      <div class="blob blob2"></div>  
+      <div class="blob blob3"></div>  
+      <div class="blob blob4"></div>  
+    </div>  
+    <!-- ...todo o restante do seu body, sem alterações -->  
     <!-- Elemento de áudio para a música de fundo -->  
     <audio id="background-music" loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
