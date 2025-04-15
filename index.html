@@ -8,47 +8,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  
     <style>  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
         body {  
             font-family: 'Montserrat', sans-serif;  
-            background: #0e1024;  
+            background-color: #0e1024;  
             color: white;  
-            margin: 0;  
-            padding: 0 0 32px 0;  
+            line-height: 1.6;  
+            padding: 20px;  
         }  
         .container {  
             max-width: 800px;  
             margin: 0 auto;  
-            position: relative;  
-            z-index: 1;  
         }  
-        .section-intro-bg-wrap {  
-            position: relative;  
-            width: 100%;  
-            height: 320px;  
-            overflow: hidden;  
-            border-radius: 0 0 16px 16px;  
-            margin-bottom: 32px;  
-        }  
-        .section-intro-bg-wrap .youtube-bg {  
-            position: absolute;  
-            top: 0; left: 0; width: 100%; height: 100%;  
-            z-index: 1;  
-            pointer-events: none;  
-            filter: blur(5px) brightness(0.65);  
-            object-fit: cover;  
-            border: none;  
-        }  
-        .intro-content {  
-            position: relative;  
-            z-index: 2;  
-            width:100%;  
-            height:100%;  
-            display:flex;  
-            flex-direction:column;  
-            align-items: center;  
-            justify-content: center;  
-            text-align:center;  
-            padding:32px 16px 48px 16px;  
+        .header {  
+            text-align: center;  
+            margin-bottom: 30px;  
+            animation: fadeIn 2s ease-in-out;  
         }  
         h1, h2 {  
             margin: 0;  
@@ -66,34 +45,124 @@
             margin-bottom: 20px;  
         }  
         .event-details {  
-            margin-top: 6px;  
+            text-align: center;  
             background: rgba(14, 16, 36, 0.7);  
-            padding: 12px 0;  
+            padding: 15px;  
             border-radius: 8px;  
-            display: inline-block;  
-            min-width: 240px;  
-            animation: slideUp 1.5s;  
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);  
+            margin-bottom: 30px;  
+            animation: slideUp 1.5s ease-out;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  
         }  
         .event-date, .event-location {  
             color: #ff2a6b;  
             font-weight: bold;  
-            margin:0.25em 0;  
         }  
         .divider {  
             height: 2px;  
             background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
-            margin: 23px 0 20px 0;  
+            margin: 25px 0;  
             border-radius: 2px;  
-            width:100%;  
         }  
-        /* Restante dos estilos permanece igual */  
-        /* ... (restante do CSS: hotéis, music-control, etc.) ... */  
         .hotel-section {  
-            margin-top: 20px;  
+            margin-top: 30px;  
         }  
-        /* ... o seu CSS continua aqui normalmente ... */  
-        /* Música */  
+        .hotel-title {  
+            text-align: center;  
+            margin-bottom: 25px;  
+        }  
+        .safety-note {  
+            background: linear-gradient(135deg, rgba(58, 28, 113, 0.1), rgba(255, 42, 107, 0.1));  
+            border: 1px solid #ff2a6b;  
+            border-radius: 10px;  
+            padding: 20px;  
+            margin: 0 0 30px 0;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+            position: relative;  
+        }  
+        .safety-note h3 {  
+            color: #ff2a6b;  
+            margin-bottom: 15px;  
+            font-size: 20px;  
+            border-bottom: 1px solid rgba(255, 42, 107, 0.3);  
+            padding-bottom: 8px;  
+        }  
+        .safety-note p {  
+            margin-bottom: 12px;  
+            line-height: 1.6;  
+        }  
+        .safety-note p:last-child {  
+            margin-bottom: 0;  
+        }  
+        .safety-note strong {  
+            color: #ff2a6b;  
+        }  
+        .safety-note em {  
+            font-style: italic;  
+            text-decoration: underline;  
+        }  
+        .hotel-list {  
+            display: flex;  
+            flex-direction: column;  
+            gap: 25px;  
+        }  
+        .hotel {  
+            background: rgba(14, 16, 36, 0.8);  
+            border-radius: 10px;  
+            padding: 20px;  
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);  
+            border-left: 5px solid #ff2a6b;  
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        }  
+        .hotel:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);  
+        }  
+        .hotel h3 {  
+            margin: 0 0 10px 0;  
+            font-size: 18px;  
+            text-transform: uppercase;  
+            color: #ffffff;  
+        }  
+        .hotel-price, .hotel-amenities, .hotel-address, .hotel-phone, .hotel-distance {  
+            margin-top: 8px;  
+        }  
+        .hotel-price {  
+            color: #ff2a6b;  
+            font-weight: bold;  
+        }  
+        .hotel-distance {  
+            color: #d16bff;  
+            font-weight: bold;  
+        }  
+        .reservation-btn {  
+            display: inline-block;  
+            margin-top: 15px;  
+            padding: 8px 20px;  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            color: white;  
+            text-decoration: none;  
+            border-radius: 25px;  
+            font-weight: bold;  
+            text-transform: uppercase;  
+            font-size: 12px;  
+            transition: transform 0.3s ease-in-out;  
+        }  
+        .reservation-btn:hover {  
+            transform: scale(1.1);  
+        }  
+        .booking-link-box {  
+            text-align: center;  
+            margin-top: 40px;  
+            padding: 20px 0 0 0;  
+        }  
+        .booking-link-box a {  
+            color: #ff2a6b;  
+            text-decoration: none;  
+            font-weight: bold;  
+        }  
+        .booking-link-box a:hover {  
+            text-decoration: underline;  
+        }  
         .music-control {  
             position: fixed;  
             bottom: 20px;  
@@ -112,6 +181,10 @@
             animation: pulse 2s infinite;  
             transition: all 0.3s ease;  
         }  
+        .music-control:hover {  
+            transform: scale(1.1);  
+            box-shadow: 0 0 20px rgba(255, 42, 107, 0.7);  
+        }  
         .music-icon {  
             fill: white;  
             width: 24px;  
@@ -122,57 +195,106 @@
             70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
             100% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0); }  
         }  
-        @keyframes slideUp {  
-            0% { opacity: 0; transform: translateY(30px);}  
-            100% { opacity:1; transform: translateY(0);}  
+        @keyframes fadeIn {  
+            0% { opacity: 0; }  
+            100% { opacity: 1; }  
         }  
-        @media (max-width: 600px) {  
-            .section-intro-bg-wrap { height: 190px;}  
-            .intro-content { padding:22px 2px 20px 2px;}  
+        @keyframes slideUp {  
+            0% {  
+                transform: translateY(30px);  
+                opacity: 0;  
+            }  
+            100% {  
+                transform: translateY(0);  
+                opacity: 1;  
+            }  
         }  
     </style>  
 </head>  
 <body>  
-    <!-- Botão de música, áudio etc, igual antes -->  
+    <!-- Elemento de áudio para a música de fundo -->  
     <audio id="background-music" loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
+    <!-- Botão de controle da música -->  
     <div id="music-control" class="music-control">  
         <svg class="music-icon" id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  
             <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>  
         </svg>  
     </div>  
     <div class="container">  
-
-        <!-- Seção com fundo animado do YouTube -->  
-        <div class="section-intro-bg-wrap">  
-            <iframe class="youtube-bg"  
-                src="https://www.youtube.com/embed/CO6rhTuuT5Q?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=CO6rhTuuT5Q&modestbranding=1"  
-                title="Background Video"  
-                frameborder="0"  
-                allow="autoplay; fullscreen"  
-                allowfullscreen  
-            ></iframe>  
-            <div class="intro-content">  
-                <h1>40 / 46 anos</h1>  
-                <h2>Amanda e Rafa</h2>  
-                <div class="event-details">  
-                    <p class="event-date">14 · 06 · 2025 às 20:00 h</p>  
-                    <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
-                </div>  
-            </div>  
+        <div class="header">  
+            <h1>40 / 46 anos</h1>  
+            <h2>Amanda e Rafa</h2>  
         </div>  
-
+        <div class="event-details">  
+            <p class="event-date">14 · 06 · 2025 às 20:00 h</p>  
+            <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
+        </div>  
         <div class="divider"></div>  
-
-        <!-- Deste ponto em diante segue seu conteúdo normal -->  
         <div class="hotel-section">  
             <h2 class="hotel-title">Guia de Hospedagem</h2>  
-            <!-- ...blocos de hotéis, dicas etc... -->  
+            <div class="safety-note">  
+                <h3>Dica especial para sua segurança</h3>  
+                <p>Recomendamos fortemente o <strong>The Hill Executive</strong> como a melhor opção de hospedagem para este evento.</p>  
+                <p>Além de estar a apenas 9 minutos do local da festa, este é o <em>único hotel</em> que permite o deslocamento sem necessidade de utilizar rodovias.</p>  
+            </div>  
+            <div class="hotel-list">  
+                <div class="hotel">  
+                    <h3>The Hill Executive</h3>  
+                    <p class="hotel-price">A partir de R$ 315/noite</p>  
+                    <p class="hotel-amenities">Café da manhã completo, Wi-Fi, Piscina, Academia, Estacionamento</p>  
+                    <p class="hotel-address">📍 R. Kenneth Gilbert Herrick, 101 - Jardim Jockei Club A, São Carlos - SP, 13565-085</p>  
+                    <p class="hotel-phone">☎ (16) 3306-3000</p>  
+                    <p class="hotel-distance">🚗 4,2 km - 9 min até o evento</p>  
+                    <a href="https://www.thehillhoteis.com.br/the-hill-executive" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+                <div class="hotel">  
+                    <h3>Marklin Suítes</h3>  
+                    <p class="hotel-price">A partir de R$ 293/noite</p>  
+                    <p class="hotel-amenities">Quartos modernos, Wi-Fi gratuito, Estacionamento</p>  
+                    <p class="hotel-address">📍 Rua José de Alencar, 261 - São Carlos</p>  
+                    <p class="hotel-phone">☎ (16) 3371-1500</p>  
+                    <p class="hotel-distance">🚗 5,2 km - 11 min até o evento</p>  
+                    <a href="https://www.marklin.com.br/" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+                <div class="hotel">  
+                    <h3>Ibis São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 203/noite</p>  
+                    <p class="hotel-amenities">Wi-Fi gratuito, Restaurante, Ar-condicionado</p>  
+                    <p class="hotel-address">📍 Avenida Passeio dos Ipês, 140 - São Carlos</p>  
+                    <p class="hotel-phone">☎ (16) 3363-2323</p>  
+                    <p class="hotel-distance">🚗 3,5 km - 8 min até o evento</p>  
+                    <a href="https://all.accor.com/ssr/app/ibis/rates/3264/index.pt-br.shtml?destination=sao-carlos-state-of-sao-paulo-brazil&compositions=1&dateIn=2025-04-15&dateOut=2025-04-16&nights=1&hideWDR=false&accessibleRoom=false" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+                <div class="hotel">  
+                    <h3>Transamerica Fit São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 220/noite</p>  
+                    <p class="hotel-amenities">Café da manhã, Wi-Fi, Academia</p>  
+                    <p class="hotel-address">📍 Rua Passeio dos Flamboyants, s/n</p>  
+                    <p class="hotel-phone">☎ (16) 3412-2000</p>  
+                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
+                    <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+                <div class="hotel">  
+                    <h3>Nacional Inn São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 180/noite</p>  
+                    <p class="hotel-amenities">Café, Academia, Piscina</p>  
+                    <p class="hotel-address">📍 Avenida Getúlio Vargas, 2330</p>  
+                    <p class="hotel-phone">☎ (16) 3363-9393</p>  
+                    <p class="hotel-distance">🚗 7,5 km - 16 min até o evento</p>  
+                    <a href="https://www.nacionalinn.com.br/hoteis/hotel-nacional-inn-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+            </div>  
+            <div class="booking-link-box">  
+                <p>Caso prefira reservar pelo <strong>Booking</strong>, clique  
+                <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
+            </div>  
         </div>  
     </div>  
     <script>  
+        // Só permite tocar música após primeiro clique (prática comum exigida por navegadores)  
         window.onload = function() {  
             window.scrollTo(0, 0);  
             const music = document.getElementById('background-music');  
@@ -180,10 +302,13 @@
             const musicPath = document.getElementById('music-path');  
             let isPlaying = false;  
 
+            // Estado inicial do botão  
             function updateIcon() {  
                 if (isPlaying) {  
+                    // Ícone de som ligado  
                     musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
                 } else {  
+                    // Ícone de som desligado  
                     musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
                 }  
             }  
@@ -198,7 +323,7 @@
                     music.play().then(() => {  
                         isPlaying = true;  
                         updateIcon();  
-                    }).catch((e)=>{});  
+                    }).catch((e)=>{}); // se o play for bloqueado, apenas ignore  
                 }  
                 updateIcon();  
             });  
