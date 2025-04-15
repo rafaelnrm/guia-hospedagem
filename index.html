@@ -20,61 +20,38 @@
             background-color: #0e1024;  
             color: white;  
             line-height: 1.6;  
-            padding: 0;  
+            padding: 20px;  
         }  
 
         .container {  
             max-width: 800px;  
             margin: 0 auto;  
-            padding: 0 20px;  
         }  
 
-        /* Hero Video Section - Estilizado para vídeo vertical */  
-        .hero-video-container {  
-            position: relative;  
-            width: 100%;  
-            background-color: #0a0c1d;  
-            padding: 60px 0;  
-            overflow: hidden;  
-            margin-bottom: 30px;  
-            background-image: linear-gradient(135deg, rgba(58, 28, 113, 0.3), rgba(255, 42, 107, 0.3));  
-        }  
-
-        .hero-video-center {  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-            flex-direction: column;  
-        }  
-
-        /* Wrapper adaptado para vídeo vertical */  
-        .hero-video-wrapper {  
-            position: relative;  
-            width: 335px; /* Largura fixa para manter proporção vertical */  
-            height: 595px; /* Altura para manter proporção 9:16 */  
+        /* Video container */  
+        .video-section {  
             margin: 0 auto 40px auto;  
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);  
-            border-radius: 15px;  
-            overflow: hidden;  
-            border: 3px solid rgba(255, 42, 107, 0.5);  
+            max-width: 380px;  
         }  
 
-        .hero-video-wrapper iframe {  
+        .video-container {  
+            position: relative;  
+            overflow: hidden;  
+            padding-top: 178%; /* Aspect ratio for vertical video */  
+            border-radius: 12px;  
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);  
+            border: 3px solid rgba(255, 42, 107, 0.5);  
+            background-color: #000;  
+            margin-bottom: 30px;  
+        }  
+
+        .video-container iframe {  
             position: absolute;  
             top: 0;  
             left: 0;  
             width: 100%;  
             height: 100%;  
-            border: none;  
-        }  
-
-        /* Textos do hero abaixo do vídeo vertical */  
-        .hero-content {  
-            text-align: center;  
-            z-index: 2;  
-            width: 90%;  
-            max-width: 800px;  
-            padding: 0 20px;  
+            border: 0;  
         }  
 
         /* Cabeçalho */  
@@ -93,15 +70,13 @@
         }  
 
         h1 {  
-            font-size: 32px;  
+            font-size: 28px;  
             margin-bottom: 10px;  
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);  
         }  
 
         h2 {  
-            font-size: 24px;  
+            font-size: 22px;  
             margin-bottom: 20px;  
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);  
         }  
 
         /* Detalhes do evento */  
@@ -340,22 +315,6 @@
             transform: scale(1.05);  
         }  
 
-        /* Responsividade para dispositivos móveis */  
-        @media (max-width: 768px) {  
-            .hero-video-wrapper {  
-                width: 270px;  
-                height: 480px;  
-            }  
-            
-            h1 {  
-                font-size: 28px;  
-            }  
-            
-            h2 {  
-                font-size: 20px;  
-            }  
-        }  
-
         @keyframes pulse {  
             0% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0.6); }  
             70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
@@ -401,4 +360,36 @@
     <!-- Botão de controle da música -->  
     <div id="music-control" class="music-control">  
         <svg class="music-icon" id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  
-            <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79
+            <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>  
+        </svg>  
+    </div>  
+
+    <!-- Conteúdo principal -->  
+    <div class="container">  
+        <div class="header">  
+            <h1>40 / 46 anos</h1>  
+            <h2>Amanda e Rafa</h2>  
+        </div>  
+
+        <!-- Seção de vídeo simplificada -->  
+        <div class="video-section">  
+            <div class="video-container">  
+                <iframe src="https://www.youtube.com/embed/lq6FQAtfOqo?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=lq6FQAtfOqo&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>  
+            </div>  
+        </div>  
+
+        <div class="event-details">  
+            <p class="event-date">14 · 06 · 2025 às 20:00</p>  
+            <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
+        </div>  
+
+        <div class="divider"></div>  
+
+        <div class="hotel-section">  
+            <h2 class="hotel-title">Guia de Hospedagem</h2>  
+            
+            <!-- Nota de segurança -->  
+            <div class="safety-note">  
+                <h3>Dica especial para sua segurança</h3>  
+                <p>Recomendamos fortemente o <strong>The Hill Executive</strong> como a melhor opção de hospedagem para nosso evento. Além de estar a apenas 9 minutos do local da festa, este é o <em>único hotel</em> que permite o deslocamento sem necessidade de utilizar rodovias.</p>  
+                <p>Considerando que nossa celeb
