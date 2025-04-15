@@ -86,6 +86,54 @@
             text-align: center;  
             margin-bottom: 25px;  
         }  
+        
+        /* Estilo para a nota de segurança */  
+        .safety-note {  
+            background: linear-gradient(135deg, rgba(58, 28, 113, 0.1), rgba(255, 42, 107, 0.1));  
+            border: 1px solid #ff2a6b;  
+            border-radius: 10px;  
+            padding: 20px;  
+            margin: 0 0 30px 0;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+            position: relative;  
+            overflow: hidden;  
+        }  
+
+        .safety-note::before {  
+            content: "🛡️";  
+            position: absolute;  
+            top: -15px;  
+            right: 20px;  
+            font-size: 40px;  
+            opacity: 0.2;  
+            transform: rotate(15deg);  
+        }  
+
+        .safety-note h3 {  
+            color: #ff2a6b;  
+            margin-bottom: 15px;  
+            font-size: 20px;  
+            border-bottom: 1px solid rgba(255, 42, 107, 0.3);  
+            padding-bottom: 8px;  
+        }  
+
+        .safety-note p {  
+            margin-bottom: 12px;  
+            line-height: 1.6;  
+        }  
+
+        .safety-note p:last-child {  
+            margin-bottom: 0;  
+        }  
+
+        .safety-note strong {  
+            color: #ff2a6b;  
+        }  
+
+        .safety-note em {  
+            font-style: italic;  
+            text-decoration: underline;  
+        }  
 
         .hotel-list {  
             display: flex;  
@@ -250,6 +298,14 @@
         <div class="hotel-section">  
             <h2 class="hotel-title">Guia de Hospedagem</h2>  
             
+            <!-- Adicionando apenas o texto de recomendação do The Hill Executive -->  
+            <div class="safety-note">  
+                <h3>Dica especial para sua segurança</h3>  
+                <p>Recomendamos fortemente o <strong>The Hill Executive</strong> como a melhor opção de hospedagem para nosso evento. Além de estar a apenas 9 minutos do local da festa, este é o <em>único hotel</em> que permite o deslocamento sem necessidade de utilizar rodovias.</p>  
+                <p>Considerando que nossa celebração contará com bebidas alcoólicas, escolher esta acomodação proporciona um trajeto mais seguro, permitindo que você aproveite plenamente nossa festa sem preocupações para o retorno.</p>  
+                <p>Para maior tranquilidade, sugerimos também considerar serviços de transporte como táxi ou aplicativos, disponíveis na região.</p>  
+            </div>  
+            
             <div class="hotel-list">  
                 <!-- Hotel The Hill com informações corretas -->  
                 <div class="hotel">  
@@ -281,79 +337,4 @@
                     <p class="hotel-phone">☎ (16) 3363-2323</p>  
                     <p class="hotel-distance">🚗 3,5 km - 8 min até o evento</p>  
                     <a href="https://all.accor.com/ssr/app/ibis/rates/3264/index.pt-br.shtml?destination=sao-carlos-state-of-sao-paulo-brazil&compositions=1&dateIn=2025-04-15&dateOut=2025-04-16&nights=1&hideWDR=false&accessibleRoom=false" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <div class="hotel">  
-                    <h3>Transamerica Fit São Carlos</h3>  
-                    <p class="hotel-price">A partir de R$ 220/noite</p>  
-                    <p class="hotel-amenities">Café da manhã, Wi-Fi, Academia</p>  
-                    <p class="hotel-address">📍 Rua Passeio dos Flamboyants, s/n</p>  
-                    <p class="hotel-phone">☎ (16) 3412-2000</p>  
-                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
-                    <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <div class="hotel">  
-                    <h3>Nacional Inn São Carlos</h3>  
-                    <p class="hotel-price">A partir de R$ 180/noite</p>  
-                    <p class="hotel-amenities">Café, Academia, Piscina</p>  
-                    <p class="hotel-address">📍 Avenida Getúlio Vargas, 2330</p>  
-                    <p class="hotel-phone">☎ (16) 3363-9393</p>  
-                    <p class="hotel-distance">🚗 7,5 km - 16 min até o evento</p>  
-                    <a href="https://www.nacionalinn.com.br/hoteis/hotel-nacional-inn-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-            </div>  
-        </div>  
-
-        <footer>  
-            <p>Caso prefira reservar pelo <strong>Booking</strong>, clique <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
-        </footer>  
-    </div>  
-
-    <script>  
-        // Prevenir scroll automático  
-        window.onload = function() {  
-            window.scrollTo(0, 0);  
-            
-            // Configuração da música de fundo  
-            const music = document.getElementById('background-music');  
-            const musicControl = document.getElementById('music-control');  
-            const musicIcon = document.getElementById('music-icon');  
-            const musicPath = document.getElementById('music-path');  
-            
-            // Tentar tocar música ao carregar (pode ser bloqueado pelos navegadores)  
-            try {  
-                music.play().then(() => {  
-                    console.log('Música iniciada com sucesso');  
-                }).catch(e => {  
-                    console.log('Autoplay bloqueado pelo navegador', e);  
-                });  
-            } catch(e) {  
-                console.log('Erro ao tocar música', e);  
-            }  
-            
-            let isPlaying = false;  
-            
-            // Verificar status inicial da música  
-            if (!music.paused) {  
-                isPlaying = true;  
-                musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
-            }  
-            
-            // Controle de clique do botão de música  
-            musicControl.addEventListener('click', function() {  
-                if (isPlaying) {  
-                    music.pause();  
-                    // Ícone de música desligada  
-                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
-                } else {  
-                    music.play().catch(e => console.log('Reprodução bloqueada pelo navegador', e));  
-                    // Ícone de música ligada  
-                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
-                }  
-                isPlaying = !isPlaying;  
-            });  
-        };  
-    </script>  
-</body>  
-</html>  
+                </div>
