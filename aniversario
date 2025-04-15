@@ -223,7 +223,7 @@
     <!-- Elemento de áudio para a música de fundo -->  
     <audio id="background-music" loop>  
         <!-- Substitua por uma música de sua escolha -->  
-        <source src="sua-musica.mp3" type="audio/mpeg">  
+        <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
 
