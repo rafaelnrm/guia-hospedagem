@@ -20,12 +20,73 @@
             background-color: #0e1024;  
             color: white;  
             line-height: 1.6;  
-            padding: 20px;  
+            padding: 0;  
         }  
 
         .container {  
             max-width: 800px;  
             margin: 0 auto;  
+            padding: 0 20px;  
+        }  
+
+        /* Hero Video Section */  
+        .hero-video-container {  
+            position: relative;  
+            width: 100%;  
+            height: 100vh;  
+            overflow: hidden;  
+            margin-bottom: 30px;  
+        }  
+
+        .hero-video-overlay {  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            background: rgba(14, 16, 36, 0.6);  
+            z-index: 1;  
+        }  
+
+        .hero-video-wrapper {  
+            position: relative;  
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */  
+            height: 0;  
+            overflow: hidden;  
+            width: 100%;  
+            height: 100%;  
+        }  
+
+        .hero-video-wrapper iframe {  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%);  
+            width: 100%;  
+            height: 100%;  
+            min-width: 100%;  
+            min-height: 100%;  
+            pointer-events: none; /* Impede interações com o vídeo */  
+            z-index: 0;  
+        }  
+
+        /* Para dispositivos móveis em retrato, ajustar o vídeo */  
+        @media (max-aspect-ratio: 16/9) {  
+            .hero-video-wrapper iframe {  
+                width: 300%;  
+                height: 100%;  
+            }  
+        }  
+
+        .hero-content {  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%);  
+            text-align: center;  
+            z-index: 2;  
+            width: 90%;  
+            max-width: 800px;  
         }  
 
         /* Cabeçalho */  
@@ -33,6 +94,7 @@
             text-align: center;  
             margin-bottom: 30px;  
             animation: fadeIn 2s ease-in-out;  
+            padding-top: 20px;  
         }  
 
         h1, h2 {  
@@ -44,13 +106,15 @@
         }  
 
         h1 {  
-            font-size: 28px;  
+            font-size: 42px;  
             margin-bottom: 10px;  
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);  
         }  
 
         h2 {  
-            font-size: 22px;  
+            font-size: 32px;  
             margin-bottom: 20px;  
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);  
         }  
 
         /* Detalhes do evento */  
@@ -195,6 +259,50 @@
             height: 24px;  
         }  
 
+        /* Notificação de música */  
+        .music-notification {  
+            position: fixed;  
+            top: 20px;  
+            left: 50%;  
+            transform: translateX(-50%);  
+            background: rgba(14, 16, 36, 0.9);  
+            color: white;  
+            padding: 12px 20px;  
+            border-radius: 25px;  
+            font-size: 14px;  
+            z-index: 100;  
+            box-shadow: 0 0 15px rgba(255, 42, 107, 0.5);  
+            animation: fadeIn 1s ease-in-out, bounce 2s ease-in-out infinite;  
+            border: 2px solid #ff2a6b;  
+            display: flex;  
+            align-items: center;  
+            gap: 10px;  
+            backdrop-filter: blur(5px);  
+            opacity: 0;  
+            pointer-events: none;  
+            transition: opacity 0.5s ease;  
+        }  
+        
+        .music-notification.show {  
+            opacity: 1;  
+            pointer-events: all;  
+        }  
+        
+        .enable-music-btn {  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            color: white;  
+            border: none;  
+            padding: 5px 15px;  
+            border-radius: 15px;  
+            cursor: pointer;  
+            font-weight: bold;  
+            transition: transform 0.2s ease;  
+        }  
+        
+        .enable-music-btn:hover {  
+            transform: scale(1.05);  
+        }  
+
         @keyframes pulse {  
             0% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0.6); }  
             70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
@@ -217,12 +325,22 @@
                 opacity: 1;  
             }  
         }  
+        
+        @keyframes bounce {  
+            0%, 100% { transform: translateX(-50%) translateY(0); }  
+            50% { transform: translateX(-50%) translateY(-5px); }  
+        }  
     </style>  
 </head>  
 <body>  
+    <!-- Notificação de música -->  
+    <div id="music-notification" class="music-notification">  
+        <span>Quer ativar a música de fundo?</span>  
+        <button id="enable-music-btn" class="enable-music-btn">Ativar</button>  
+    </div>  
+
     <!-- Elemento de áudio para a música de fundo -->  
-    <audio id="background-music" loop>  
-        <!-- Substitua por uma música de sua escolha -->  
+    <audio id="background-music" autoplay muted loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
@@ -234,17 +352,31 @@
         </svg>  
     </div>  
 
+    <!-- Seção Hero com vídeo -->  
+    <div class="hero-video-container">  
+        <div class="hero-video-overlay"></div>  
+        <div class="hero-video-wrapper">  
+            <iframe   
+                src="https://www.youtube.com/embed/lq6FQAtfOqo?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=lq6FQAtfOqo&modestbranding=1&iv_load_policy=3&fs=0&color=white&disablekb=1"   
+                frameborder="0"   
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"   
+                allowfullscreen>  
+            </iframe>  
+        </div>  
+        <div class="hero-content">  
+            <div class="header">  
+                <h1>40 / 46 anos</h1>  
+                <h2>Amanda e Rafa</h2>  
+            </div>  
+
+            <div class="event-details">  
+                <p class="event-date">14 · 06 · 2025 às 20:00</p>  
+                <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
+            </div>  
+        </div>  
+    </div>  
+
     <div class="container">  
-        <div class="header">  
-            <h1>40 / 46 anos</h1>  
-            <h2>Amanda e Rafa</h2>  
-        </div>  
-
-        <div class="event-details">  
-            <p class="event-date">14 · 06 · 2025 às 20:00</p>  
-            <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
-        </div>  
-
         <div class="divider"></div>  
 
         <div class="hotel-section">  
@@ -311,8 +443,9 @@
     </div>  
 
     <script>  
-        // Prevenir scroll automático  
+        // Configurações da página  
         window.onload = function() {  
+            // Prevenir scroll automático  
             window.scrollTo(0, 0);  
             
             // Configuração da música de fundo  
@@ -320,17 +453,30 @@
             const musicControl = document.getElementById('music-control');  
             const musicIcon = document.getElementById('music-icon');  
             const musicPath = document.getElementById('music-path');  
+            const notification = document.getElementById('music-notification');  
+            const enableMusicBtn = document.getElementById('enable-music-btn');  
             
-            // Tentar tocar música ao carregar (pode ser bloqueado pelos navegadores)  
-            try {  
-                music.play().then(() => {  
-                    console.log('Música iniciada com sucesso');  
-                }).catch(e => {  
-                    console.log('Autoplay bloqueado pelo navegador', e);  
-                });  
-            } catch(e) {  
-                console.log('Erro ao tocar música', e);  
-            }  
+            // Iniciar a música muda (isso geralmente é permitido)  
+            music.muted = true;  
+            
+            // Mostrar a notificação após 2.5 segundos (dar tempo para o vídeo começar)  
+            setTimeout(() => {  
+                notification.classList.add('show');  
+            }, 2500);  
+            
+            // Botão para ativar música na notificação  
+            enableMusicBtn.addEventListener('click', function() {  
+                music.muted = false;  
+                isPlaying = true;  
+                musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
+                notification.classList.remove('show');  
+            });  
+            
+            // Também tentar ativar música com qualquer clique na página  
+            document.addEventListener('click', function() {  
+                // Tentar reproduzir (pode não funcionar dependendo da política do navegador)  
+                music.play().catch(e => console.log('Reprodução bloqueada pelo navegador:', e));  
+            }, { once: true }); // Apenas uma vez  
             
             let isPlaying = false;  
             
@@ -347,6 +493,7 @@
                     // Ícone de música desligada  
                     musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
                 } else {  
+                    music.muted = false; // Garantir que não está mudo quando o usuário clicar no botão  
                     music.play().catch(e => console.log('Reprodução bloqueada pelo navegador', e));  
                     // Ícone de música ligada  
                     musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
