@@ -1,77 +1,369 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Hospedagem - Aniversário</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            color: white;
-            background-color: #0e0220;
-            background-image: url('https://img.freepik.com/vetores-gratis/fundo-do-rendering-3d-da-tecnologia-da-inteligencia-artificial_117250-164.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        .container {
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #f7db63;
-        }
-        .hotel {
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        a {
-            color: #f7db63;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Guia de Hospedagem</h1>
-        <h2>Festa de 40 anos - Amanda e Rafa</h2>
-        <p>Data: 14 de junho de 2025, às 20h<br>Local: Club House - Damha Golf Club, São Carlos - SP</p>
+<!DOCTYPE html>  
+<html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>40 / 46 anos - Amanda e Rafa</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  
+    <style>  
+        /* Reset e estilos básicos */  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+        
+        body {  
+            font-family: 'Montserrat', sans-serif;  
+            background-color: #0e1024;  
+            color: white;  
+            line-height: 1.6;  
+            padding: 20px;  
+        }  
 
-        <h3>Opções de Hospedagem</h3>
-        <div class="hotel">
-            <h4>Ibis São Carlos</h4>
-            <p>Preço médio: R$ 203/noite</p>
-            <p>Wi-Fi gratuito, restaurante no local, ar-condicionado</p>
-            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
-        </div>
-        <div class="hotel">
-            <h4>Transamerica Fit São Carlos</h4>
-            <p>Preço médio: R$ 220/noite</p>
-            <p>Café da manhã incluso, Wi-Fi gratuito, academia, piscina</p>
-            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
-        </div>
-        <div class="hotel">
-            <h4>Marklin Suítes</h4>
-            <p>Preço médio: R$ 293/noite</p>
-            <p>Quartos modernos e confortáveis, estacionamento incluído, Wi-Fi gratuito</p>
-            <a href="https://www.booking.com" target="_blank">Saiba mais e reserve</a>
-        </div>
+        .container {  
+            max-width: 800px;  
+            margin: 0 auto;  
+        }  
 
-        <footer>
-            🎉 Estamos ansiosos para comemorar com você! 🎉<br>
-            <small>Entre em contato para mais informações e dúvidas.</small>
-        </footer>
-    </div>
-</body>
-</html>
+        /* Cabeçalho */  
+        .header {  
+            text-align: center;  
+            margin-bottom: 30px;  
+            animation: fadeIn 2s ease-in-out;  
+        }  
+
+        h1, h2 {  
+            margin: 0;  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            text-transform: uppercase;  
+        }  
+
+        h1 {  
+            font-size: 28px;  
+            margin-bottom: 10px;  
+        }  
+
+        h2 {  
+            font-size: 22px;  
+            margin-bottom: 20px;  
+        }  
+
+        /* Detalhes do evento */  
+        .event-details {  
+            text-align: center;  
+            background: rgba(14, 16, 36, 0.7);  
+            padding: 15px;  
+            border-radius: 8px;  
+            margin-bottom: 30px;  
+            animation: slideUp 1.5s ease-out;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  
+        }  
+
+        .event-date, .event-location {  
+            color: #ff2a6b;  
+            font-weight: bold;  
+        }  
+
+        /* Divisor */  
+        .divider {  
+            height: 2px;  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            margin: 25px 0;  
+            border-radius: 2px;  
+        }  
+
+        /* Lista de hotéis */  
+        .hotel-section {  
+            margin-top: 30px;  
+        }  
+
+        .hotel-title {  
+            text-align: center;  
+            margin-bottom: 25px;  
+        }  
+
+        .hotel-list {  
+            display: flex;  
+            flex-direction: column;  
+            gap: 25px;  
+        }  
+
+        .hotel {  
+            background: rgba(14, 16, 36, 0.8);  
+            border-radius: 10px;  
+            padding: 20px;  
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);  
+            border-left: 5px solid #ff2a6b;  
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        }  
+
+        .hotel:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);  
+        }  
+
+        .hotel h3 {  
+            margin: 0 0 10px 0;  
+            font-size: 18px;  
+            text-transform: uppercase;  
+            color: #ffffff;  
+        }  
+
+        .hotel-price, .hotel-amenities, .hotel-address, .hotel-phone, .hotel-distance {  
+            margin-top: 8px;  
+        }  
+
+        .hotel-price {  
+            color: #ff2a6b;  
+            font-weight: bold;  
+        }  
+
+        .hotel-distance {  
+            color: #d16bff; /* Nova cor mais alinhada ao tema rosa/roxo */  
+            font-weight: bold;  
+        }  
+
+        /* Botão de reserva */  
+        .reservation-btn {  
+            display: inline-block;  
+            margin-top: 15px;  
+            padding: 8px 20px;  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            color: white;  
+            text-decoration: none;  
+            border-radius: 25px;  
+            font-weight: bold;  
+            text-transform: uppercase;  
+            font-size: 12px;  
+            transition: transform 0.3s ease-in-out;  
+        }  
+
+        .reservation-btn:hover {  
+            transform: scale(1.1);  
+        }  
+
+        /* Rodapé */  
+        footer {  
+            text-align: center;  
+            margin-top: 40px;  
+            padding: 20px;  
+        }  
+
+        footer a {  
+            color: #ff2a6b;  
+            text-decoration: none;  
+            font-weight: bold;  
+        }  
+
+        footer a:hover {  
+            text-decoration: underline;  
+        }  
+
+        /* Controle de música */  
+        .music-control {  
+            position: fixed;  
+            bottom: 20px;  
+            right: 20px;  
+            width: 50px;  
+            height: 50px;  
+            background: rgba(14, 16, 36, 0.8);  
+            border-radius: 50%;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            cursor: pointer;  
+            z-index: 100;  
+            box-shadow: 0 0 15px rgba(255, 42, 107, 0.4);  
+            border: 2px solid #ff2a6b;  
+            animation: pulse 2s infinite;  
+            transition: all 0.3s ease;  
+        }  
+
+        .music-control:hover {  
+            transform: scale(1.1);  
+            box-shadow: 0 0 20px rgba(255, 42, 107, 0.7);  
+        }  
+
+        .music-icon {  
+            fill: white;  
+            width: 24px;  
+            height: 24px;  
+        }  
+
+        @keyframes pulse {  
+            0% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0.6); }  
+            70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
+            100% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0); }  
+        }  
+
+        /* Animações */  
+        @keyframes fadeIn {  
+            0% { opacity: 0; }  
+            100% { opacity: 1; }  
+        }  
+
+        @keyframes slideUp {  
+            0% {  
+                transform: translateY(30px);  
+                opacity: 0;  
+            }  
+            100% {  
+                transform: translateY(0);  
+                opacity: 1;  
+            }  
+        }  
+    </style>  
+</head>  
+<body>  
+    <!-- Elemento de áudio para a música de fundo -->  
+    <audio id="background-music" loop>  
+        <!-- Substitua por uma música de sua escolha -->  
+        <source src="sua-musica.mp3" type="audio/mpeg">  
+        Seu navegador não suporta o elemento de áudio.  
+    </audio>  
+
+    <!-- Botão de controle da música -->  
+    <div id="music-control" class="music-control">  
+        <svg class="music-icon" id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  
+            <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>  
+        </svg>  
+    </div>  
+
+    <div class="container">  
+        <div class="header">  
+            <h1>40 / 46 anos</h1>  
+            <h2>Amanda e Rafa</h2>  
+        </div>  
+
+        <div class="event-details">  
+            <p class="event-date">14 · 06 · 2025 às 20:00</p>  
+            <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
+        </div>  
+
+        <div class="divider"></div>  
+
+        <div class="hotel-section">  
+            <h2 class="hotel-title">Guia de Hospedagem</h2>  
+            
+            <div class="hotel-list">  
+                <!-- Hotel The Hill com informações corretas -->  
+                <div class="hotel">  
+                    <h3>The Hill Executive</h3>  
+                    <p class="hotel-price">A partir de R$ 315/noite</p>  
+                    <p class="hotel-amenities">Café da manhã completo, Wi-Fi, Piscina, Academia, Estacionamento</p>  
+                    <p class="hotel-address">📍 R. Kenneth Gilbert Herrick, 101 - Jardim Jockei Club A, São Carlos - SP, 13565-085</p>  
+                    <p class="hotel-phone">☎ (16) 3306-3000</p>  
+                    <p class="hotel-distance">🚗 4,2 km - 9 min até o evento</p>  
+                    <a href="https://hotelhillexecutive.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <!-- Marklin Suites agora em segundo lugar -->  
+                <div class="hotel">  
+                    <h3>Marklin Suítes</h3>  
+                    <p class="hotel-price">A partir de R$ 293/noite</p>  
+                    <p class="hotel-amenities">Quartos modernos, Wi-Fi gratuito, Estacionamento</p>  
+                    <p class="hotel-address">📍 Rua José de Alencar, 261 - São Carlos</p>  
+                    <p class="hotel-phone">☎ (16) 3371-1500</p>  
+                    <p class="hotel-distance">🚗 5,2 km - 11 min até o evento</p>  
+                    <a href="https://marklinsuites.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <div class="hotel">  
+                    <h3>Ibis São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 203/noite</p>  
+                    <p class="hotel-amenities">Wi-Fi gratuito, Restaurante, Ar-condicionado</p>  
+                    <p class="hotel-address">📍 Avenida Passeio dos Ipês, 140 - São Carlos</p>  
+                    <p class="hotel-phone">☎ (16) 3363-2323</p>  
+                    <p class="hotel-distance">🚗 3,5 km - 8 min até o evento</p>  
+                    <a href="https://ibis-sao-carlos.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <div class="hotel">  
+                    <h3>Transamerica Fit São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 220/noite</p>  
+                    <p class="hotel-amenities">Café da manhã, Wi-Fi, Academia</p>  
+                    <p class="hotel-address">📍 Rua Passeio dos Flamboyants, s/n</p>  
+                    <p class="hotel-phone">☎ (16) 3412-2000</p>  
+                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
+                    <a href="https://transamericahotels.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <div class="hotel">  
+                    <h3>Central Park Hotel Residence</h3>  
+                    <p class="hotel-price">Consultar disponibilidade</p>  
+                    <p class="hotel-amenities">Wi-Fi gratuito, Estacionamento gratuito</p>  
+                    <p class="hotel-address">📍 Rua Aquidaban, 396 - Centro</p>  
+                    <p class="hotel-phone">☎ (16) 3397-9900</p>  
+                    <p class="hotel-distance">🚗 6,7 km - 15 min até o evento</p>  
+                    <a href="https://centralparkhotel.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <div class="hotel">  
+                    <h3>Nacional Inn São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 180/noite</p>  
+                    <p class="hotel-amenities">Café, Academia, Piscina</p>  
+                    <p class="hotel-address">📍 Avenida Getúlio Vargas, 2330</p>  
+                    <p class="hotel-phone">☎ (16) 3363-9393</p>  
+                    <p class="hotel-distance">🚗 7,5 km - 16 min até o evento</p>  
+                    <a href="https://nacionalinn.com.br" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+            </div>  
+        </div>  
+
+        <footer>  
+            <p>Caso prefira reservar pelo <strong>Booking</strong>, clique <a href="https://www.booking.com" target="_blank">aqui</a>.</p>  
+        </footer>  
+    </div>  
+
+    <script>  
+        // Prevenir scroll automático  
+        window.onload = function() {  
+            window.scrollTo(0, 0);  
+            
+            // Configuração da música de fundo  
+            const music = document.getElementById('background-music');  
+            const musicControl = document.getElementById('music-control');  
+            const musicIcon = document.getElementById('music-icon');  
+            const musicPath = document.getElementById('music-path');  
+            
+            // Tentar tocar música ao carregar (pode ser bloqueado pelos navegadores)  
+            try {  
+                music.play().then(() => {  
+                    console.log('Música iniciada com sucesso');  
+                }).catch(e => {  
+                    console.log('Autoplay bloqueado pelo navegador', e);  
+                });  
+            } catch(e) {  
+                console.log('Erro ao tocar música', e);  
+            }  
+            
+            let isPlaying = false;  
+            
+            // Verificar status inicial da música  
+            if (!music.paused) {  
+                isPlaying = true;  
+                musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
+            }  
+            
+            // Controle de clique do botão de música  
+            musicControl.addEventListener('click', function() {  
+                if (isPlaying) {  
+                    music.pause();  
+                    // Ícone de música desligada  
+                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
+                } else {  
+                    music.play().catch(e => console.log('Reprodução bloqueada pelo navegador', e));  
+                    // Ícone de música ligada  
+                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
+                }  
+                isPlaying = !isPlaying;  
+            });  
+        };  
+    </script>  
+</body>  
+</html>  
