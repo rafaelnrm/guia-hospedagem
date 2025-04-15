@@ -20,12 +20,61 @@
             background-color: #0e1024;  
             color: white;  
             line-height: 1.6;  
-            padding: 20px;  
+            padding: 0;  
         }  
 
         .container {  
             max-width: 800px;  
             margin: 0 auto;  
+            padding: 0 20px;  
+        }  
+
+        /* Hero Video Section - Estilizado para vídeo vertical */  
+        .hero-video-container {  
+            position: relative;  
+            width: 100%;  
+            background-color: #0a0c1d;  
+            padding: 60px 0;  
+            overflow: hidden;  
+            margin-bottom: 30px;  
+            background-image: linear-gradient(135deg, rgba(58, 28, 113, 0.3), rgba(255, 42, 107, 0.3));  
+        }  
+
+        .hero-video-center {  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            flex-direction: column;  
+        }  
+
+        /* Wrapper adaptado para vídeo vertical */  
+        .hero-video-wrapper {  
+            position: relative;  
+            width: 335px; /* Largura fixa para manter proporção vertical */  
+            height: 595px; /* Altura para manter proporção 9:16 */  
+            margin: 0 auto 40px auto;  
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);  
+            border-radius: 15px;  
+            overflow: hidden;  
+            border: 3px solid rgba(255, 42, 107, 0.5);  
+        }  
+
+        .hero-video-wrapper iframe {  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            width: 100%;  
+            height: 100%;  
+            border: none;  
+        }  
+
+        /* Textos do hero abaixo do vídeo vertical */  
+        .hero-content {  
+            text-align: center;  
+            z-index: 2;  
+            width: 90%;  
+            max-width: 800px;  
+            padding: 0 20px;  
         }  
 
         /* Cabeçalho */  
@@ -44,13 +93,15 @@
         }  
 
         h1 {  
-            font-size: 28px;  
+            font-size: 32px;  
             margin-bottom: 10px;  
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);  
         }  
 
         h2 {  
-            font-size: 22px;  
+            font-size: 24px;  
             margin-bottom: 20px;  
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);  
         }  
 
         /* Detalhes do evento */  
@@ -85,6 +136,56 @@
         .hotel-title {  
             text-align: center;  
             margin-bottom: 25px;  
+        }  
+        
+        /* Estilo para a nota de segurança */  
+        .safety-note {  
+            background: linear-gradient(135deg, rgba(58, 28, 113, 0.1), rgba(255, 42, 107, 0.1));  
+            border: 1px solid #ff2a6b;  
+            border-radius: 10px;  
+            padding: 20px;  
+            margin: 30px 0;  
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+            position: relative;  
+            overflow: hidden;  
+        }  
+
+        .safety-note::before {  
+            content: "🛡️";  
+            position: absolute;  
+            top: -15px;  
+            right: 20px;  
+            font-size: 40px;  
+            opacity: 0.2;  
+            transform: rotate(15deg);  
+        }  
+
+        .safety-note h3 {  
+            color: #ff2a6b;  
+            margin-bottom: 15px;  
+            font-size: 20px;  
+            border-bottom: 1px solid rgba(255, 42, 107, 0.3);  
+            padding-bottom: 8px;  
+            text-transform: none;  
+            -webkit-text-fill-color: #ff2a6b;  
+        }  
+
+        .safety-note p {  
+            margin-bottom: 12px;  
+            line-height: 1.6;  
+        }  
+
+        .safety-note p:last-child {  
+            margin-bottom: 0;  
+        }  
+
+        .safety-note strong {  
+            color: #ff2a6b;  
+        }  
+
+        .safety-note em {  
+            font-style: italic;  
+            text-decoration: underline;  
         }  
 
         .hotel-list {  
@@ -195,6 +296,66 @@
             height: 24px;  
         }  
 
+        /* Notificação de música */  
+        .music-notification {  
+            position: fixed;  
+            top: 20px;  
+            left: 50%;  
+            transform: translateX(-50%);  
+            background: rgba(14, 16, 36, 0.9);  
+            color: white;  
+            padding: 12px 20px;  
+            border-radius: 25px;  
+            font-size: 14px;  
+            z-index: 100;  
+            box-shadow: 0 0 15px rgba(255, 42, 107, 0.5);  
+            animation: fadeIn 1s ease-in-out, bounce 2s ease-in-out infinite;  
+            border: 2px solid #ff2a6b;  
+            display: flex;  
+            align-items: center;  
+            gap: 10px;  
+            backdrop-filter: blur(5px);  
+            opacity: 0;  
+            pointer-events: none;  
+            transition: opacity 0.5s ease;  
+        }  
+        
+        .music-notification.show {  
+            opacity: 1;  
+            pointer-events: all;  
+        }  
+        
+        .enable-music-btn {  
+            background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
+            color: white;  
+            border: none;  
+            padding: 5px 15px;  
+            border-radius: 15px;  
+            cursor: pointer;  
+            font-weight: bold;  
+            transition: transform 0.2s ease;  
+        }  
+        
+        .enable-music-btn:hover {  
+            transform: scale(1.05);  
+        }  
+
+        /* Responsividade para dispositivos móveis */  
+        @media (max-width: 768px) {  
+            .hero-video-wrapper {  
+                width: 270px;  
+                height: 480px;  
+            }  
+            
+            h1 {  
+                font-size: 28px;  
+            }  
+            
+            h2 {  
+                font-size: 20px;  
+            }  
+        }  
+
         @keyframes pulse {  
             0% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0.6); }  
             70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
@@ -217,12 +378,22 @@
                 opacity: 1;  
             }  
         }  
+        
+        @keyframes bounce {  
+            0%, 100% { transform: translateX(-50%) translateY(0); }  
+            50% { transform: translateX(-50%) translateY(-5px); }  
+        }  
     </style>  
 </head>  
 <body>  
+    <!-- Notificação de música -->  
+    <div id="music-notification" class="music-notification">  
+        <span>Quer ativar a música de fundo?</span>  
+        <button id="enable-music-btn" class="enable-music-btn">Ativar</button>  
+    </div>  
+
     <!-- Elemento de áudio para a música de fundo -->  
-    <audio id="background-music" loop>  
-        <!-- Substitua por uma música de sua escolha -->  
+    <audio id="background-music" autoplay muted loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
@@ -230,130 +401,4 @@
     <!-- Botão de controle da música -->  
     <div id="music-control" class="music-control">  
         <svg class="music-icon" id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  
-            <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>  
-        </svg>  
-    </div>  
-
-    <div class="container">  
-        <div class="header">  
-            <h1>40 / 46 anos</h1>  
-            <h2>Amanda e Rafa</h2>  
-        </div>  
-
-        <div class="event-details">  
-            <p class="event-date">14 · 06 · 2025 às 20:00</p>  
-            <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
-        </div>  
-
-        <div class="divider"></div>  
-
-        <div class="hotel-section">  
-            <h2 class="hotel-title">Guia de Hospedagem</h2>  
-            
-            <div class="hotel-list">  
-                <!-- Hotel The Hill com informações corretas -->  
-                <div class="hotel">  
-                    <h3>The Hill Executive</h3>  
-                    <p class="hotel-price">A partir de R$ 315/noite</p>  
-                    <p class="hotel-amenities">Café da manhã completo, Wi-Fi, Piscina, Academia, Estacionamento</p>  
-                    <p class="hotel-address">📍 R. Kenneth Gilbert Herrick, 101 - Jardim Jockei Club A, São Carlos - SP, 13565-085</p>  
-                    <p class="hotel-phone">☎ (16) 3306-3000</p>  
-                    <p class="hotel-distance">🚗 4,2 km - 9 min até o evento</p>  
-                    <a href="https://www.thehillhoteis.com.br/the-hill-executive" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <!-- Marklin Suites agora em segundo lugar -->  
-                <div class="hotel">  
-                    <h3>Marklin Suítes</h3>  
-                    <p class="hotel-price">A partir de R$ 293/noite</p>  
-                    <p class="hotel-amenities">Quartos modernos, Wi-Fi gratuito, Estacionamento</p>  
-                    <p class="hotel-address">📍 Rua José de Alencar, 261 - São Carlos</p>  
-                    <p class="hotel-phone">☎ (16) 3371-1500</p>  
-                    <p class="hotel-distance">🚗 5,2 km - 11 min até o evento</p>  
-                    <a href="https://www.marklin.com.br/" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <div class="hotel">  
-                    <h3>Ibis São Carlos</h3>  
-                    <p class="hotel-price">A partir de R$ 203/noite</p>  
-                    <p class="hotel-amenities">Wi-Fi gratuito, Restaurante, Ar-condicionado</p>  
-                    <p class="hotel-address">📍 Avenida Passeio dos Ipês, 140 - São Carlos</p>  
-                    <p class="hotel-phone">☎ (16) 3363-2323</p>  
-                    <p class="hotel-distance">🚗 3,5 km - 8 min até o evento</p>  
-                    <a href="https://all.accor.com/ssr/app/ibis/rates/3264/index.pt-br.shtml?destination=sao-carlos-state-of-sao-paulo-brazil&compositions=1&dateIn=2025-04-15&dateOut=2025-04-16&nights=1&hideWDR=false&accessibleRoom=false" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <div class="hotel">  
-                    <h3>Transamerica Fit São Carlos</h3>  
-                    <p class="hotel-price">A partir de R$ 220/noite</p>  
-                    <p class="hotel-amenities">Café da manhã, Wi-Fi, Academia</p>  
-                    <p class="hotel-address">📍 Rua Passeio dos Flamboyants, s/n</p>  
-                    <p class="hotel-phone">☎ (16) 3412-2000</p>  
-                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
-                    <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-
-                <div class="hotel">  
-                    <h3>Nacional Inn São Carlos</h3>  
-                    <p class="hotel-price">A partir de R$ 180/noite</p>  
-                    <p class="hotel-amenities">Café, Academia, Piscina</p>  
-                    <p class="hotel-address">📍 Avenida Getúlio Vargas, 2330</p>  
-                    <p class="hotel-phone">☎ (16) 3363-9393</p>  
-                    <p class="hotel-distance">🚗 7,5 km - 16 min até o evento</p>  
-                    <a href="https://www.nacionalinn.com.br/hoteis/hotel-nacional-inn-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
-                </div>  
-            </div>  
-        </div>  
-
-        <footer>  
-            <p>Caso prefira reservar pelo <strong>Booking</strong>, clique <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
-        </footer>  
-    </div>  
-
-    <script>  
-        // Prevenir scroll automático  
-        window.onload = function() {  
-            window.scrollTo(0, 0);  
-            
-            // Configuração da música de fundo  
-            const music = document.getElementById('background-music');  
-            const musicControl = document.getElementById('music-control');  
-            const musicIcon = document.getElementById('music-icon');  
-            const musicPath = document.getElementById('music-path');  
-            
-            // Tentar tocar música ao carregar (pode ser bloqueado pelos navegadores)  
-            try {  
-                music.play().then(() => {  
-                    console.log('Música iniciada com sucesso');  
-                }).catch(e => {  
-                    console.log('Autoplay bloqueado pelo navegador', e);  
-                });  
-            } catch(e) {  
-                console.log('Erro ao tocar música', e);  
-            }  
-            
-            let isPlaying = false;  
-            
-            // Verificar status inicial da música  
-            if (!music.paused) {  
-                isPlaying = true;  
-                musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
-            }  
-            
-            // Controle de clique do botão de música  
-            musicControl.addEventListener('click', function() {  
-                if (isPlaying) {  
-                    music.pause();  
-                    // Ícone de música desligada  
-                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
-                } else {  
-                    music.play().catch(e => console.log('Reprodução bloqueada pelo navegador', e));  
-                    // Ícone de música ligada  
-                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
-                }  
-                isPlaying = !isPlaying;  
-            });  
-        };  
-    </script>  
-</body>  
-</html>  
+            <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79
