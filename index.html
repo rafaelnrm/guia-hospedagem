@@ -213,7 +213,7 @@
 </head>  
 <body>  
     <!-- Elemento de áudio para a música de fundo -->  
-    <audio id="background-music" autoplay loop>  
+    <audio id="background-music" loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
@@ -241,7 +241,7 @@
         <div class="hotel-section">  
             <h2 class="hotel-title">Guia de Hospedagem</h2>  
             
-            <!-- Texto atualizado com as alterações solicitadas -->  
+            <!-- Texto de recomendação The Hill -->  
             <div class="safety-note">  
                 <h3>Dica especial para sua segurança</h3>  
                 <p>Recomendamos fortemente o <strong>The Hill Executive</strong> como a melhor opção de hospedagem para este evento.</p>  
@@ -249,7 +249,7 @@
             </div>  
             
             <div class="hotel-list">  
-                <!-- Hotel The Hill com informações corretas -->  
+                <!-- Hotel The Hill -->  
                 <div class="hotel">  
                     <h3>The Hill Executive</h3>  
                     <p class="hotel-price">A partir de R$ 315/noite</p>  
@@ -259,8 +259,6 @@
                     <p class="hotel-distance">🚗 4,2 km - 9 min até o evento</p>  
                     <a href="https://www.thehillhoteis.com.br/the-hill-executive" target="_blank" class="reservation-btn">Reservar no site</a>  
                 </div>  
-
-                <!-- Marklin Suites agora em segundo lugar -->  
                 <div class="hotel">  
                     <h3>Marklin Suítes</h3>  
                     <p class="hotel-price">A partir de R$ 293/noite</p>  
@@ -270,7 +268,6 @@
                     <p class="hotel-distance">🚗 5,2 km - 11 min até o evento</p>  
                     <a href="https://www.marklin.com.br/" target="_blank" class="reservation-btn">Reservar no site</a>  
                 </div>  
-
                 <div class="hotel">  
                     <h3>Ibis São Carlos</h3>  
                     <p class="hotel-price">A partir de R$ 203/noite</p>  
@@ -280,7 +277,6 @@
                     <p class="hotel-distance">🚗 3,5 km - 8 min até o evento</p>  
                     <a href="https://all.accor.com/ssr/app/ibis/rates/3264/index.pt-br.shtml?destination=sao-carlos-state-of-sao-paulo-brazil&compositions=1&dateIn=2025-04-15&dateOut=2025-04-16&nights=1&hideWDR=false&accessibleRoom=false" target="_blank" class="reservation-btn">Reservar no site</a>  
                 </div>  
-
                 <div class="hotel">  
                     <h3>Transamerica Fit São Carlos</h3>  
                     <p class="hotel-price">A partir de R$ 220/noite</p>  
@@ -290,7 +286,6 @@
                     <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
                     <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
                 </div>  
-
                 <div class="hotel">  
                     <h3>Nacional Inn São Carlos</h3>  
                     <p class="hotel-price">A partir de R$ 180/noite</p>  
@@ -301,7 +296,6 @@
                     <a href="https://www.nacionalinn.com.br/hoteis/hotel-nacional-inn-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
                 </div>  
             </div>  
-            
             <div class="booking-link-box">  
                 <p>Caso prefira reservar pelo <strong>Booking</strong>, clique   
                 <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
@@ -310,25 +304,19 @@
     </div>  
 
     <script>  
-        // Prevenir scroll automático  
         window.onload = function() {  
             window.scrollTo(0, 0);  
             const music = document.getElementById('background-music');  
             const musicControl = document.getElementById('music-control');  
             const musicPath = document.getElementById('music-path');  
             let isPlaying = false;  
-            // Tentar tocar música ao carregar (necessário user gesture em muitos casos)  
-            try {  
-                music.play().then(() => {  
-                    isPlaying = true;  
-                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
-                }).catch(() => {});  
-            } catch(e) {}  
-            // Controle manual  
+            // Botão funciona mesmo após bloqueio inicial do navegador  
             musicControl.addEventListener('click', function() {  
                 if (isPlaying) {  
                     music.pause();  
                     musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
+                    isPlaying = false;  
                 } else {  
+                    music.currentTime = 0;  
                     music.play().then(() => {  
-                        musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21
+                        musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1
