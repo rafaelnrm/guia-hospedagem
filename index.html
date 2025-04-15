@@ -8,13 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  
     <style>  
-        /* Reset e estilos básicos */  
         * {  
             margin: 0;  
             padding: 0;  
             box-sizing: border-box;  
         }  
-        
         body {  
             font-family: 'Montserrat', sans-serif;  
             background-color: #0e1024;  
@@ -22,19 +20,15 @@
             line-height: 1.6;  
             padding: 20px;  
         }  
-
         .container {  
             max-width: 800px;  
             margin: 0 auto;  
         }  
-
-        /* Cabeçalho */  
         .header {  
             text-align: center;  
             margin-bottom: 30px;  
             animation: fadeIn 2s ease-in-out;  
         }  
-
         h1, h2 {  
             margin: 0;  
             background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
@@ -42,18 +36,14 @@
             -webkit-text-fill-color: transparent;  
             text-transform: uppercase;  
         }  
-
         h1 {  
             font-size: 28px;  
             margin-bottom: 10px;  
         }  
-
         h2 {  
             font-size: 22px;  
             margin-bottom: 20px;  
         }  
-
-        /* Detalhes do evento */  
         .event-details {  
             text-align: center;  
             background: rgba(14, 16, 36, 0.7);  
@@ -63,31 +53,23 @@
             animation: slideUp 1.5s ease-out;  
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  
         }  
-
         .event-date, .event-location {  
             color: #ff2a6b;  
             font-weight: bold;  
         }  
-
-        /* Divisor */  
         .divider {  
             height: 2px;  
             background: linear-gradient(90deg, #ff2a6b, #3a1c71);  
             margin: 25px 0;  
             border-radius: 2px;  
         }  
-
-        /* Lista de hotéis */  
         .hotel-section {  
             margin-top: 30px;  
         }  
-
         .hotel-title {  
             text-align: center;  
             margin-bottom: 25px;  
         }  
-        
-        /* Estilo para a nota de segurança - removido o ícone */  
         .safety-note {  
             background: linear-gradient(135deg, rgba(58, 28, 113, 0.1), rgba(255, 42, 107, 0.1));  
             border: 1px solid #ff2a6b;  
@@ -96,9 +78,7 @@
             margin: 0 0 30px 0;  
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
             position: relative;  
-            overflow: hidden;  
         }  
-
         .safety-note h3 {  
             color: #ff2a6b;  
             margin-bottom: 15px;  
@@ -106,31 +86,25 @@
             border-bottom: 1px solid rgba(255, 42, 107, 0.3);  
             padding-bottom: 8px;  
         }  
-
         .safety-note p {  
             margin-bottom: 12px;  
             line-height: 1.6;  
         }  
-
         .safety-note p:last-child {  
             margin-bottom: 0;  
         }  
-
         .safety-note strong {  
             color: #ff2a6b;  
         }  
-
         .safety-note em {  
             font-style: italic;  
             text-decoration: underline;  
         }  
-
         .hotel-list {  
             display: flex;  
             flex-direction: column;  
             gap: 25px;  
         }  
-
         .hotel {  
             background: rgba(14, 16, 36, 0.8);  
             border-radius: 10px;  
@@ -139,34 +113,27 @@
             border-left: 5px solid #ff2a6b;  
             transition: transform 0.3s ease, box-shadow 0.3s ease;  
         }  
-
         .hotel:hover {  
             transform: translateY(-5px);  
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);  
         }  
-
         .hotel h3 {  
             margin: 0 0 10px 0;  
             font-size: 18px;  
             text-transform: uppercase;  
             color: #ffffff;  
         }  
-
         .hotel-price, .hotel-amenities, .hotel-address, .hotel-phone, .hotel-distance {  
             margin-top: 8px;  
         }  
-
         .hotel-price {  
             color: #ff2a6b;  
             font-weight: bold;  
         }  
-
         .hotel-distance {  
-            color: #d16bff; /* Nova cor mais alinhada ao tema rosa/roxo */  
+            color: #d16bff;  
             font-weight: bold;  
         }  
-
-        /* Botão de reserva */  
         .reservation-btn {  
             display: inline-block;  
             margin-top: 15px;  
@@ -180,29 +147,22 @@
             font-size: 12px;  
             transition: transform 0.3s ease-in-out;  
         }  
-
         .reservation-btn:hover {  
             transform: scale(1.1);  
         }  
-
-        /* Rodapé */  
-        footer {  
+        .booking-link-box {  
             text-align: center;  
             margin-top: 40px;  
-            padding: 20px;  
+            padding: 20px 0 0 0;  
         }  
-
-        footer a {  
+        .booking-link-box a {  
             color: #ff2a6b;  
             text-decoration: none;  
             font-weight: bold;  
         }  
-
-        footer a:hover {  
+        .booking-link-box a:hover {  
             text-decoration: underline;  
         }  
-
-        /* Controle de música */  
         .music-control {  
             position: fixed;  
             bottom: 20px;  
@@ -221,30 +181,24 @@
             animation: pulse 2s infinite;  
             transition: all 0.3s ease;  
         }  
-
         .music-control:hover {  
             transform: scale(1.1);  
             box-shadow: 0 0 20px rgba(255, 42, 107, 0.7);  
         }  
-
         .music-icon {  
             fill: white;  
             width: 24px;  
             height: 24px;  
         }  
-
         @keyframes pulse {  
             0% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0.6); }  
             70% { box-shadow: 0 0 0 10px rgba(255, 42, 107, 0); }  
             100% { box-shadow: 0 0 0 0 rgba(255, 42, 107, 0); }  
         }  
-
-        /* Animações */  
         @keyframes fadeIn {  
             0% { opacity: 0; }  
             100% { opacity: 1; }  
         }  
-
         @keyframes slideUp {  
             0% {  
                 transform: translateY(30px);  
@@ -259,8 +213,7 @@
 </head>  
 <body>  
     <!-- Elemento de áudio para a música de fundo -->  
-    <audio id="background-music" loop>  
-        <!-- Substitua por uma música de sua escolha -->  
+    <audio id="background-music" autoplay loop>  
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
@@ -334,10 +287,48 @@
                     <p class="hotel-amenities">Café da manhã, Wi-Fi, Academia</p>  
                     <p class="hotel-address">📍 Rua Passeio dos Flamboyants, s/n</p>  
                     <p class="hotel-phone">☎ (16) 3412-2000</p>  
-                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>
-                    <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos?utm_source=gmb&utm_medium=organic&utm_campaign=cta-profile">Reservar no site</a>
-              </div>
-                    <footer>  
-            <p>Caso prefira reservar pelo <strong>Booking</strong>, clique <a href="https://www.booking.com/searchresults.pt-br.html?ss=S%C3%A3o+Carlos&ssne=S%C3%A3o+Carlos&ssne_untouched=S%C3%A3o+Carlos&label=pt-br-booking-desktop-9_uvqir24qvA6x6xGiDvCQS652796015463%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9198222%3Ali%3Adec%3Adm&aid=2311236&lang=pt-br&sb=1&src_elem=sb&src=searchresults&dest_id=-670122&dest_type=city&checkin=2025-06-14&checkout=2025-06-15&group_adults=2&no_rooms=1&group_children=0">aqui</a>.</p>  
-        </footer> 
-                
+                    <p class="hotel-distance">🚗 2,8 km - 6 min até o evento</p>  
+                    <a href="https://www.letsatlantica.com.br/hotel/transamerica-fit-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+
+                <div class="hotel">  
+                    <h3>Nacional Inn São Carlos</h3>  
+                    <p class="hotel-price">A partir de R$ 180/noite</p>  
+                    <p class="hotel-amenities">Café, Academia, Piscina</p>  
+                    <p class="hotel-address">📍 Avenida Getúlio Vargas, 2330</p>  
+                    <p class="hotel-phone">☎ (16) 3363-9393</p>  
+                    <p class="hotel-distance">🚗 7,5 km - 16 min até o evento</p>  
+                    <a href="https://www.nacionalinn.com.br/hoteis/hotel-nacional-inn-sao-carlos" target="_blank" class="reservation-btn">Reservar no site</a>  
+                </div>  
+            </div>  
+            
+            <div class="booking-link-box">  
+                <p>Caso prefira reservar pelo <strong>Booking</strong>, clique   
+                <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
+            </div>  
+        </div>  
+    </div>  
+
+    <script>  
+        // Prevenir scroll automático  
+        window.onload = function() {  
+            window.scrollTo(0, 0);  
+            const music = document.getElementById('background-music');  
+            const musicControl = document.getElementById('music-control');  
+            const musicPath = document.getElementById('music-path');  
+            let isPlaying = false;  
+            // Tentar tocar música ao carregar (necessário user gesture em muitos casos)  
+            try {  
+                music.play().then(() => {  
+                    isPlaying = true;  
+                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
+                }).catch(() => {});  
+            } catch(e) {}  
+            // Controle manual  
+            musicControl.addEventListener('click', function() {  
+                if (isPlaying) {  
+                    music.pause();  
+                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
+                } else {  
+                    music.play().then(() => {  
+                        musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21
