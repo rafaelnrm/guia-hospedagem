@@ -217,39 +217,30 @@
         <source src="Electric Light Orchestra - Last Train To London (Audio).mp3" type="audio/mpeg">  
         Seu navegador não suporta o elemento de áudio.  
     </audio>  
-
     <!-- Botão de controle da música -->  
     <div id="music-control" class="music-control">  
         <svg class="music-icon" id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  
             <path id="music-path" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>  
         </svg>  
     </div>  
-
     <div class="container">  
         <div class="header">  
             <h1>40 / 46 anos</h1>  
             <h2>Amanda e Rafa</h2>  
         </div>  
-
         <div class="event-details">  
             <p class="event-date">14 · 06 · 2025 às 20:00 h</p>  
             <p class="event-location">Club House - Damha Golf Club, São Carlos (SP)</p>  
         </div>  
-
         <div class="divider"></div>  
-
         <div class="hotel-section">  
             <h2 class="hotel-title">Guia de Hospedagem</h2>  
-            
-            <!-- Texto de recomendação The Hill -->  
             <div class="safety-note">  
                 <h3>Dica especial para sua segurança</h3>  
                 <p>Recomendamos fortemente o <strong>The Hill Executive</strong> como a melhor opção de hospedagem para este evento.</p>  
                 <p>Além de estar a apenas 9 minutos do local da festa, este é o <em>único hotel</em> que permite o deslocamento sem necessidade de utilizar rodovias.</p>  
             </div>  
-            
             <div class="hotel-list">  
-                <!-- Hotel The Hill -->  
                 <div class="hotel">  
                     <h3>The Hill Executive</h3>  
                     <p class="hotel-price">A partir de R$ 315/noite</p>  
@@ -297,26 +288,46 @@
                 </div>  
             </div>  
             <div class="booking-link-box">  
-                <p>Caso prefira reservar pelo <strong>Booking</strong>, clique   
+                <p>Caso prefira reservar pelo <strong>Booking</strong>, clique  
                 <a href="https://www.booking.com/city/br/sao-carlos.pt-br.html" target="_blank">aqui</a>.</p>  
             </div>  
         </div>  
     </div>  
-
     <script>  
+        // Só permite tocar música após primeiro clique (prática comum exigida por navegadores)  
         window.onload = function() {  
             window.scrollTo(0, 0);  
             const music = document.getElementById('background-music');  
             const musicControl = document.getElementById('music-control');  
             const musicPath = document.getElementById('music-path');  
             let isPlaying = false;  
-            // Botão funciona mesmo após bloqueio inicial do navegador  
+
+            // Estado inicial do botão  
+            function updateIcon() {  
+                if (isPlaying) {  
+                    // Ícone de som ligado  
+                    musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z');  
+                } else {  
+                    // Ícone de som desligado  
+                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
+                }  
+            }  
+
+            updateIcon();  
+
             musicControl.addEventListener('click', function() {  
                 if (isPlaying) {  
                     music.pause();  
-                    musicPath.setAttribute('d', 'M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z');  
                     isPlaying = false;  
                 } else {  
-                    music.currentTime = 0;  
                     music.play().then(() => {  
-                        musicPath.setAttribute('d', 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1
+                        isPlaying = true;  
+                        updateIcon();  
+                    }).catch((e)=>{}); // se o play for bloqueado, apenas ignore  
+                }  
+                updateIcon();  
+            });  
+        };  
+    </script>  
+</body>  
+</html>  
